@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Você, Que Talvez Nem Imagine...</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0d0d2b, #1a1a40);
+      font-family: 'Quicksand', sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ffe082;
+    }
+
+    .estrela {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: piscar 2s infinite ease-in-out;
+    }
+
+    @keyframes piscar {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 1; }
+    }
+
+    #mensagem {
+      font-size: 1.3em;
+      margin-top: 20px;
+      max-width: 600px;
+      line-height: 1.6em;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    button {
+      margin-top: 30px;
+      background: #ffab40;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      color: #1a1a40;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff9100;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Você sabia...?</h1>
+  <p>Clique no botão. Eu tenho algo que guardei há um tempo.</p>
+
+  <button onclick="mostrar()">Ver mensagem ✨</button>
+  <div id="mensagem"></div>
+
+  <script>
+    // Criar estrelas aleatórias
+    for (let i = 0; i < 100; i++) {
+      let estrela = document.createElement('div');
+      estrela.className = 'estrela';
+      estrela.style.top = Math.random() * 100 + 'vh';
+      estrela.style.left = Math.random() * 100 + 'vw';
+      estrela.style.animationDelay = Math.random() * 5 + 's';
+      estrela.style.opacity = Math.random();
+      document.body.appendChild(estrela);
+    }
+
+    function mostrar() {
+      const msg = document.getElementById('mensagem');
+      msg.innerHTML = `
+        Entre bilhões de estrelas, você apareceu na minha vida.<br><br>
+        E eu só queria dizer isso, do meu jeito esquisito, mas sincero:<br><br>
+        <strong>Eu gosto de você. De verdade.</strong><br><br>
+        Talvez você nem imagine... mas agora sabe. 💫
+      `;
+      msg.style.opacity = 1;
+    }
+  </script>
+
+</body>
+</html>
