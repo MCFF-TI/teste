@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eu queria te contar...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para a Melhor Mãe</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #ffecd2, #fcb69f);
-      font-family: 'Arial', sans-serif;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      color: #4a2c00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       text-align: center;
-      box-sizing: border-box;
     }
-
-    .container {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      max-width: 500px;
+    .card {
+      background: #fff9e6;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 15px rgba(248, 181, 0, 0.4);
+      max-width: 400px;
       width: 100%;
     }
-
     h1 {
-      font-size: 24px;
+      font-size: 2rem;
       margin-bottom: 15px;
+      color: #b06c00;
     }
-
     p {
-      font-size: 18px;
-      margin: 10px 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
     }
-
     button {
-      background-color: #ff6f61;
-      color: white;
+      background-color: #f8b500;
       border: none;
       padding: 12px 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 30px;
+      color: #4a2c00;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
     }
-
-    #resposta {
-      display: none;
+    button:hover {
+      background-color: #d99900;
+    }
+    #mensagem {
+      font-size: 1.3rem;
+      color: #7a4b00;
       margin-top: 20px;
-      font-size: 18px;
-      color: #ff3d00;
+      display: none;
     }
-
-    @media (max-width: 400px) {
-      h1 { font-size: 20px; }
-      p, button { font-size: 16px; }
+    @media (max-width: 450px) {
+      .card {
+        padding: 20px 15px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      p, #mensagem {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ei, você...</h1>
-    <p>Eu tenho algo aqui no coração querendo ser dito faz tempo.</p>
-    <button onclick="mostrar()">Quer saber?</button>
-    <div id="resposta"></div>
+  <div class="card">
+    <h1>Para a melhor mãe do mundo</h1>
+    <p>Mãe, tem um segredo que quero dividir com você, mas do jeitinho mais doce que eu sei...</p>
+    <button onclick="mostrar()">Abrir mensagem ❤️</button>
+    <div id="mensagem">
+      <p>Você é meu maior exemplo, meu porto seguro e meu amor infinito.  
+      Obrigado(a) por tudo que você é e faz. Te amo mais que palavras! 🌻</p>
+    </div>
   </div>
 
   <script>
     function mostrar() {
-      const r = document.getElementById('resposta');
-      r.innerHTML = "Eu gosto de você. Mesmo. ❤️";
-      r.style.display = 'block';
+      const msg = document.getElementById('mensagem');
+      msg.style.display = 'block';
     }
   </script>
 </body>
 </html>
-
