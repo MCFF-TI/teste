@@ -3,87 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Para a Melhor Mãe</title>
+  <title>Mensagem para Júlia</title>
   <style>
     body {
       margin: 0;
-      padding: 20px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #fceabb, #f8b500);
-      color: #4a2c00;
+      padding: 0;
+      background: linear-gradient(135deg, #f9d5e5, #fbc8d4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
+      color: #4a235a;
       text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
     .card {
-      background: #fff9e6;
-      border-radius: 20px;
+      background: white;
+      border-radius: 25px;
       padding: 30px 25px;
-      box-shadow: 0 8px 15px rgba(248, 181, 0, 0.4);
       max-width: 400px;
-      width: 100%;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+      user-select: none;
     }
     h1 {
-      font-size: 2rem;
       margin-bottom: 15px;
-      color: #b06c00;
+      font-size: 2rem;
     }
     p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
       margin-bottom: 25px;
+      line-height: 1.5;
     }
     button {
-      background-color: #f8b500;
+      background-color: #e75480;
       border: none;
-      padding: 12px 20px;
+      padding: 15px 25px;
       border-radius: 30px;
-      color: #4a2c00;
+      color: white;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      width: 100%;
+      box-shadow: 0 5px 15px rgba(231, 84, 128, 0.6);
     }
     button:hover {
-      background-color: #d99900;
+      background-color: #d0446c;
+      box-shadow: 0 7px 20px rgba(208, 68, 108, 0.8);
     }
     #mensagem {
-      font-size: 1.3rem;
-      color: #7a4b00;
-      margin-top: 20px;
       display: none;
+      font-size: 1.2rem;
+      color: #b2226e;
+      animation: aparecer 1s forwards;
+    }
+    @keyframes aparecer {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     @media (max-width: 450px) {
       .card {
         padding: 20px 15px;
       }
       h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
       }
       p, #mensagem {
-        font-size: 1.1rem;
+        font-size: 1rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 12px 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Para a melhor mãe do mundo</h1>
-    <p>Mãe, tem um segredo que quero dividir com você, mas do jeitinho mais doce que eu sei...</p>
-    <button onclick="mostrar()">Abrir mensagem ❤️</button>
+    <h1>Oi, Júlia! 💖</h1>
+    <p>Tenho uma mensagem especial pra você. Quer ver?</p>
+    <button onclick="mostrarMensagem()">Mostrar mensagem</button>
     <div id="mensagem">
-      <p>Você é meu maior exemplo, meu porto seguro e meu amor infinito.  
-      Obrigado(a) por tudo que você é e faz. Te amo mais que palavras! 🌻</p>
+      <p>Você é uma prima maravilhosa, cheia de alegria e luz.  
+      Tenho muita sorte de ter você na minha vida! 🌟<br>  
+      Te adoro demais! 😄✨</p>
     </div>
   </div>
 
   <script>
-    function mostrar() {
-      const msg = document.getElementById('mensagem');
-      msg.style.display = 'block';
+    function mostrarMensagem() {
+      const mensagem = document.getElementById('mensagem');
+      mensagem.style.display = 'block';
     }
   </script>
 </body>
