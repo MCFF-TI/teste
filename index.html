@@ -2,102 +2,82 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Para Você, Que Talvez Nem Imagine...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eu queria te contar...</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
-
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #0d0d2b, #1a1a40);
-      font-family: 'Quicksand', sans-serif;
-      color: #ffffff;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      font-family: 'Arial', sans-serif;
+      color: #333;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      padding: 20px;
       text-align: center;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #ffe082;
+      font-size: 24px;
+      margin-bottom: 15px;
     }
 
-    .estrela {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: piscar 2s infinite ease-in-out;
-    }
-
-    @keyframes piscar {
-      0%, 100% { opacity: 0.1; }
-      50% { opacity: 1; }
-    }
-
-    #mensagem {
-      font-size: 1.3em;
-      margin-top: 20px;
-      max-width: 600px;
-      line-height: 1.6em;
-      opacity: 0;
-      transition: opacity 2s ease;
+    p {
+      font-size: 18px;
+      margin: 10px 0;
     }
 
     button {
-      margin-top: 30px;
-      background: #ffab40;
+      background-color: #ff6f61;
+      color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 30px;
-      color: #1a1a40;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
-    button:hover {
-      background: #ff9100;
+    #resposta {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff3d00;
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 20px; }
+      p, button { font-size: 16px; }
     }
   </style>
 </head>
 <body>
-
-  <h1>Você sabia...?</h1>
-  <p>Clique no botão. Eu tenho algo que guardei há um tempo.</p>
-
-  <button onclick="mostrar()">Ver mensagem ✨</button>
-  <div id="mensagem"></div>
+  <div class="container">
+    <h1>Ei, você...</h1>
+    <p>Eu tenho algo aqui no coração querendo ser dito faz tempo.</p>
+    <button onclick="mostrar()">Quer saber?</button>
+    <div id="resposta"></div>
+  </div>
 
   <script>
-    // Criar estrelas aleatórias
-    for (let i = 0; i < 100; i++) {
-      let estrela = document.createElement('div');
-      estrela.className = 'estrela';
-      estrela.style.top = Math.random() * 100 + 'vh';
-      estrela.style.left = Math.random() * 100 + 'vw';
-      estrela.style.animationDelay = Math.random() * 5 + 's';
-      estrela.style.opacity = Math.random();
-      document.body.appendChild(estrela);
-    }
-
     function mostrar() {
-      const msg = document.getElementById('mensagem');
-      msg.innerHTML = `
-        Entre bilhões de estrelas, você apareceu na minha vida.<br><br>
-        E eu só queria dizer isso, do meu jeito esquisito, mas sincero:<br><br>
-        <strong>Eu gosto de você. De verdade.</strong><br><br>
-        Talvez você nem imagine... mas agora sabe. 💫
-      `;
-      msg.style.opacity = 1;
+      const r = document.getElementById('resposta');
+      r.innerHTML = "Eu gosto de você. Mesmo. ❤️";
+      r.style.display = 'block';
     }
   </script>
-
 </body>
 </html>
+
