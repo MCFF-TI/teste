@@ -3,124 +3,86 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mensagem Animada para Júlia</title>
+<title>Mensagem Especial para Júlia</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     background: linear-gradient(135deg, #fceabb, #f8b500);
     font-family: 'Comic Neue', cursive, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     height: 100vh;
     overflow: hidden;
     color: #4a235a;
     text-align: center;
-    position: relative;
     flex-direction: column;
+    position: relative;
   }
-
-  /* Fundo animado leve */
   body::before {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
     background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
     animation: brilho 6s linear infinite alternate;
     z-index: 0;
   }
-
   @keyframes brilho {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(20px, 20px) scale(1.1); }
+    0% { transform: translate(0,0) scale(1);}
+    100% { transform: translate(20px,20px) scale(1.1);}
   }
 
   .card {
     position: relative;
     background: white;
     border-radius: 25px;
-    padding: 30px 25px;
-    max-width: 400px;
+    padding: 25px 25px 40px 25px;
+    max-width: 420px;
     width: 90%;
     box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
     z-index: 1;
     user-select: none;
   }
-
-  h1 {
+  img.primaFoto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 15px #f05454cc;
     margin-bottom: 15px;
+    border: 4px solid #e75480;
+  }
+  h1 {
+    margin: 10px 0 15px 0;
     font-size: 2rem;
   }
-
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    line-height: 1.5;
-  }
-
-  button {
-    background-color: #e75480;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 30px;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(231, 84, 128, 0.6);
-    animation: pulsar 2s infinite;
-  }
-
-  button:hover {
-    background-color: #d0446c;
-    box-shadow: 0 7px 20px rgba(208, 68, 108, 0.8);
-  }
-
-  @keyframes pulsar {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  #mensagem {
-    display: none;
+  .slide {
     font-size: 1.2rem;
     color: #b2226e;
-    animation: aparecer 1s forwards;
-    position: relative;
+    min-height: 90px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  @keyframes aparecer {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-
-  /* Coração animado */
   .coracao {
-    position: absolute;
-    top: -30px;
-    right: 20px;
-    font-size: 40px;
+    font-size: 50px;
     color: #e75480;
     animation: bater 1s infinite alternate;
-    opacity: 0;
-    pointer-events: none;
+    margin-top: 15px;
   }
-
   @keyframes bater {
     0% { transform: scale(1); opacity: 1;}
     50% { transform: scale(1.3); opacity: 0.7;}
     100% { transform: scale(1); opacity: 1;}
   }
 
-  /* Botão música */
-  #btnMusica {
+  #btnMusica, #btnSlide {
     margin-top: 20px;
     background:#f05454;
     color:#fff;
@@ -131,53 +93,80 @@
     font-weight: 700;
     box-shadow: 0 5px 15px rgba(240, 84, 84, 0.6);
     transition: background-color 0.3s ease;
+    user-select: none;
   }
-  #btnMusica:hover {
+  #btnMusica:hover, #btnSlide:hover {
     background: #d03c3c;
     box-shadow: 0 7px 20px rgba(208, 60, 60, 0.8);
   }
 
   @media (max-width: 450px) {
     .card {
-      padding: 20px 15px;
+      padding: 20px 15px 30px 15px;
     }
     h1 {
       font-size: 1.6rem;
     }
-    p, #mensagem {
+    .slide {
       font-size: 1rem;
+      min-height: 80px;
     }
-    button, #btnMusica {
+    #btnMusica, #btnSlide {
       font-size: 1rem;
       padding: 12px 20px;
+    }
+    img.primaFoto {
+      width: 100px;
+      height: 100px;
     }
   }
 </style>
 </head>
 <body>
   <div class="card">
+    <img class="primaFoto" src="https://i.imgur.com/VLdGB8V.jpg" alt="Foto da Júlia" />
     <h1>Oi, Júlia! 💖</h1>
-    <p>Tenho uma mensagem especial pra você. Quer ver?</p>
-    <button onclick="mostrarMensagem()">Mostrar mensagem</button>
-    <div id="mensagem">
-      <p>Você é uma prima maravilhosa, cheia de alegria e luz.<br>  
-      Tenho muita sorte de ter você na minha vida! 🌟<br>  
-      Te adoro demais! 😄✨</p>
-      <div class="coracao" id="coracao">❤️</div>
+
+    <div id="slidesContainer">
+      <div class="slide active">Você é uma prima maravilhosa, cheia de alegria e luz.</div>
+      <div class="slide">Tenho muita sorte de ter você na minha vida! 🌟</div>
+      <div class="slide">Te adoro demais! 😄✨</div>
     </div>
+
+    <div class="coracao">❤️</div>
   </div>
 
   <audio id="musica" src="musica.mp3" loop></audio>
   <button id="btnMusica" onclick="toggleMusica()">🎵 Tocar Música</button>
+  <button id="btnSlide" onclick="toggleSlides()">⏸ Pausar Slides</button>
 
   <script>
-    function mostrarMensagem() {
-      const mensagem = document.getElementById('mensagem');
-      const coracao = document.getElementById('coracao');
-      mensagem.style.display = 'block';
-      coracao.style.opacity = '1';
+    // Slides automáticos
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    let slideInterval = setInterval(nextSlide, 3500);
+    let slidesPaused = false;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
     }
 
+    function toggleSlides() {
+      const btn = document.getElementById('btnSlide');
+      if (slidesPaused) {
+        slideInterval = setInterval(nextSlide, 3500);
+        btn.textContent = '⏸ Pausar Slides';
+        slidesPaused = false;
+      } else {
+        clearInterval(slideInterval);
+        btn.textContent = '▶️ Retomar Slides';
+        slidesPaused = true;
+      }
+    }
+
+    // Música
     function toggleMusica() {
       const musica = document.getElementById('musica');
       const btn = document.getElementById('btnMusica');
